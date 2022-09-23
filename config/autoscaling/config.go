@@ -28,6 +28,8 @@ func Configure(p *config.Provider) {
 		r.LateInitializer = config.LateInitializer{
 			IgnoredFields: []string{
 				"availability_zones",
+				"desired_capacity",
+				"max_size",
 			},
 		}
 		r.Version = common.VersionV1Alpha2

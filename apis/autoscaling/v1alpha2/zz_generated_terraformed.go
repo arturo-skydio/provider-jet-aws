@@ -164,6 +164,8 @@ func (tr *AutoscalingGroup) LateInitialize(attrs []byte) (bool, error) {
 	}
 	opts := []resource.GenericLateInitializerOption{resource.WithZeroValueJSONOmitEmptyFilter(resource.CNameWildcard)}
 	opts = append(opts, resource.WithNameFilter("AvailabilityZones"))
+	opts = append(opts, resource.WithNameFilter("DesiredCapacity"))
+	opts = append(opts, resource.WithNameFilter("MaxSize"))
 
 	li := resource.NewGenericLateInitializer(opts...)
 	return li.LateInitialize(&tr.Spec.ForProvider, params)
